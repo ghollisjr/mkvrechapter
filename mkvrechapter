@@ -1,0 +1,29 @@
+#!/bin/bash
+if [[ $# -ne 2 ]] ; then
+    echo "Usage: mkvrechapter <infile.mkv> <outfile.mkv>"
+    echo ""
+    echo "Renames chapters so that they all start at 1 and are contiguous."
+    echo ""
+    echo "Set environment variable TMPDIR to wherever you want to place tmp"
+    echo "files if you don't like the default.  E.g., you can use"
+    echo ""
+    echo "TMDIR='.'"
+    echo ""
+    echo "to just place tmp files in the current directory.  This is mainly for"
+    echo "memory-constrained systems that can't have a bunch of video files in /tmp."
+    exit 1
+fi;
+infile=$1
+outfile=$2
+tmp=$(mktemp -u --suffix=.mkv XXXXXXX)
+tmpdir=$(dirname "$tmp")
+tmpbasepre=$(basename "$tmp" .mkv)
+tmppre=${tmpdir}/${tmpbasepre}
+mkvmerge -o "$tmp" --split chapters:all "$infile"
+for i in ${tmppre}-*.mkv; do
+    newtmp=$(mktemp --suffix=.mkv XXXXXXX)
+    mkvmerge -o $newtmp --no-chapters $i
+    mv $newtmp $i
+done
+mkvmerge -o "$outfile" --generate-chapters when-appending '[' ${tmppre}-*.mkv ']'
+rm ${tmppre}-*.mkv
