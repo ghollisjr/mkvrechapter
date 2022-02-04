@@ -28,7 +28,7 @@ Trouble is, these files now have weird chapter indices.  E.g.,
 This is more embarrassing than someone finding these videos on your
 hard drive.  To fix it, run mkvrechapter like this in the shell:
 
-for i in tentacles-e??.mkv; do
+for i in tentacles-e???.mkv; do
     mkvrechapter ${i} fixed-${i}
 done
 
