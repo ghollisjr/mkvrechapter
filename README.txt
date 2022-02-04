@@ -5,9 +5,9 @@ Example: You have a file tentacles.mkv that has 10 chapters in it, but
 the content is a concatenation of episodes from your favorite hentai
 anime series and you want to split it into
 
-* Episode 1 is on chapters 1-3.
-* Episode 2 is on chapters 4-5.
-* Episode 3 is on chapters 6-10.
+* Episode 1 is on chapters 1-3
+* Episode 2 is on chapters 4-5
+* Episode 3 is on chapters 6-10
 
 You split this file into episodes like this:
 
@@ -32,10 +32,16 @@ for i in tentacles-e??.mkv; do
     mkvrechapter ${i} fixed-${i}
 done
 
+Now the chapters will be
+
+* tentacles-e01.mkv Chapters=1,2,3
+* tentacles-e02.mkv Chapters=1,2
+* tentacles-e03.mkv Chapters=1,2,3,4,5
+
 Note that mkvrechapter uses mktemp, so temporary files will be placed
 
-1. Under $TMPDIR if it's set.
-2. Under /tmp if it's not set.
+1. Under $TMPDIR if it's set
+2. Under /tmp if it's not set
 
 So, if you'd rather make temporary files on a hard drive that can
 handle getting mercilessly pounded by massive videos, do something
