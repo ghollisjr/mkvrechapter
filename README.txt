@@ -15,15 +15,15 @@ mkvmerge -o tentacles-e.mkv --split chapters:4,6 tentacles.mkv
 
 so that you now have these episodes in your current directory:
 
-* tentacles-e01.mkv
-* tentacles-e02.mkv
-* tentacles-e03.mkv
+* tentacles-e001.mkv
+* tentacles-e002.mkv
+* tentacles-e003.mkv
 
 Trouble is, these files now have weird chapter indices.  E.g., 
 
-* tentacles-e01.mkv Chapters=1,2,3
-* tentacles-e02.mkv Chapters=4,5
-* tentacles-e03.mkv Chapters=6,7,8,9,10
+* tentacles-e001.mkv Chapters=1,2,3
+* tentacles-e002.mkv Chapters=4,5
+* tentacles-e003.mkv Chapters=6,7,8,9,10
 
 This is more embarrassing than someone finding these videos on your
 hard drive.  To fix it, run mkvrechapter like this in the shell:
@@ -34,9 +34,9 @@ done
 
 Now the chapters will be
 
-* tentacles-e01.mkv Chapters=1,2,3
-* tentacles-e02.mkv Chapters=1,2
-* tentacles-e03.mkv Chapters=1,2,3,4,5
+* tentacles-e001.mkv Chapters=1,2,3
+* tentacles-e002.mkv Chapters=1,2
+* tentacles-e003.mkv Chapters=1,2,3,4,5
 
 Note that mkvrechapter uses mktemp, so temporary files will be placed
 
