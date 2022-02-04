@@ -34,9 +34,9 @@ done
 
 Now the chapters will be
 
-* tentacles-e001.mkv Chapters=1,2,3
-* tentacles-e002.mkv Chapters=1,2
-* tentacles-e003.mkv Chapters=1,2,3,4,5
+* fixed-tentacles-e001.mkv Chapters=1,2,3
+* fixed-tentacles-e002.mkv Chapters=1,2
+* fixed-tentacles-e003.mkv Chapters=1,2,3,4,5
 
 Note that mkvrechapter uses mktemp, so temporary files will be placed
 
