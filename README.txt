@@ -29,7 +29,7 @@ This is more embarrassing than someone finding these videos on your
 hard drive.  To fix it, run mkvrechapter like this in the shell:
 
 for i in tentacles-e??.mkv; do
-    mkvrechapter $i fixed-${i}
+    mkvrechapter ${i} fixed-${i}
 done
 
 Note that mkvrechapter uses mktemp, so temporary files will be placed
